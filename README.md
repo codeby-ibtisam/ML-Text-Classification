@@ -62,7 +62,7 @@ The heatmap below visualizes the model's predictions versus the actual labels. T
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/MuhammadHassanminhas/scientific-abstract-classifier.git
+    git clone https://github.com/codeby-ibtisam/scientific-abstract-classifier.git
     ```
 2.  **Install dependencies:**
     ```bash
