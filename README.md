@@ -1,211 +1,82 @@
+
 # 🧬 Scientific Abstract Classifier (NLP)
 
-## 📖 Overview
+**Task 7: ML Text Classification**
+An end-to-end Machine Learning pipeline that classifies scientific abstracts into three medical domains: **Cancer, Neurology, and Cardiology**. Built using Python, Scikit-Learn, and TF-IDF vectorization.
 
-A Machine Learning and Natural Language Processing (NLP) project that classifies scientific abstracts into three medical domains:
+## 📌 Project Overview
 
-* 🩺 Cardiology
-* 🧠 Neurology
-* 🎗️ Cancer
+This project demonstrates a complete NLP workflow designed to categorize medical text data.
 
-The project demonstrates an end-to-end text classification workflow using **Python**, **Scikit-Learn**, and **TF-IDF Vectorization**, from data generation to model evaluation.
+1.  **Data Generation:** Creates a synthetic dataset of 100 scientific abstracts.
+2.  **Preprocessing:** Cleans and converts text to numerical vectors using **TF-IDF**.
+3.  **Modeling:** Trains a **Logistic Regression** classifier.
+4.  **Evaluation:** Validates performance using Accuracy scores and Confusion Matrices.
 
----
-
-## ✨ Features
-
-* Generate a synthetic dataset of scientific abstracts
-* Perform text preprocessing and feature extraction
-* Convert text into numerical vectors using TF-IDF
-* Train a Logistic Regression classifier
-* Evaluate model performance using:
-
-  * Accuracy Score
-  * Classification Report
-  * Confusion Matrix
-* Visualize results with heatmaps
-
----
+-----
 
 ## 📂 Repository Structure
 
 ```text
-scientific-abstract-classifier/
-│
-├── scientific_abstracts.csv        # Generated dataset
-├── Task7_Text_Classifier.ipynb     # Main Jupyter Notebook
-├── README.md                       # Project documentation
-└── requirements.txt                # Project dependencies (optional)
+.
+├── scientific_abstracts.csv    # (Generated) The dataset used for training
+├── Task7_Text_Classifier.ipynb # Main Jupyter Notebook containing all code         
+└── README.md                   # Project documentation
 ```
 
----
+-----
 
-## 🏗️ Project Workflow
+## 🚀 Workflow Steps
 
-### 1️⃣ Data Collection
+### 1\. Data Collection
 
-A balanced synthetic dataset of **100 scientific abstracts** was generated to simulate real-world medical research papers.
+We generated a balanced dataset containing 100 synthetic abstracts.
 
-**Categories:**
+  * **Source:** Python generation script (simulating PubMed-style text).
+  * **Classes:** `Cancer`, `Neuro`, `Cardio`.
 
-* Cancer
-* Neurology
-* Cardiology
+### 2\. Feature Engineering
 
----
+Text data was transformed using **TF-IDF (Term Frequency-Inverse Document Frequency)**. This technique converts raw text into numerical features, highlighting domain-specific keywords like *"tumor"* or *"synapse"* while ignoring common stopwords.
 
-### 2️⃣ Text Preprocessing & Feature Engineering
+### 3\. Model Training
 
-The textual abstracts are transformed into numerical representations using **TF-IDF (Term Frequency–Inverse Document Frequency)**.
+  * **Algorithm:** Logistic Regression (chosen for its efficiency with sparse text data).
+  * **Split:** 80% Training / 20% Testing.
 
-TF-IDF helps:
+-----
 
-* Highlight important domain-specific keywords
-* Reduce the impact of common words
-* Improve classification performance
+## 📊 Results & Visualization
 
-**Example Keywords:**
+### **Model Performance**
 
-| Domain     | Keywords                      |
-| ---------- | ----------------------------- |
-| Cancer     | tumor, oncology, chemotherapy |
-| Neurology  | neuron, synapse, brain        |
-| Cardiology | heart, artery, cardiovascular |
+The model was evaluated on a held-out test set (20% of data). The Classification Report below details the Precision, Recall, and F1-Scores for each category.
 
----
+### **Confusion Matrix**
 
-### 3️⃣ Model Training
+The heatmap below visualizes the model's predictions versus the actual labels. The strong diagonal line indicates high classification accuracy across all three categories.
 
-**Algorithm:** Logistic Regression
+-----
 
-Why Logistic Regression?
+## 🛠️ How to Run
 
-* Efficient for text classification
-* Works well with sparse TF-IDF features
-* Fast training and prediction
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/MuhammadHassanminhas/scientific-abstract-classifier.git
+    ```
+2.  **Install dependencies:**
+    ```bash
+    pip install pandas scikit-learn matplotlib seaborn jupyter
+    ```
+3.  **Launch the Notebook:**
+    ```bash
+    jupyter notebook Task7_Text_Classifier.ipynb
+    ```
+4.  **Run All Cells:**
+    The notebook is self-contained. Running all cells will generate the dataset, train the model, and display the output plots.
 
-**Train-Test Split**
 
-* Training Data: 80%
-* Testing Data: 20%
-
----
-
-## 📊 Results
-
-### Model Performance
-
-The classifier is evaluated on unseen test data using:
-
-* Accuracy Score
-* Precision
-* Recall
-* F1-Score
-
-Example:
-
-```text
-Accuracy: 95%
-
-Classification Report:
-              precision    recall    f1-score
-Cancer          0.95       0.96       0.95
-Neurology       0.94       0.93       0.93
-Cardiology      0.96       0.95       0.95
-```
-
----
-
-### Confusion Matrix
-
-A confusion matrix heatmap is generated to visualize model predictions.
-
-**Interpretation:**
-
-* Strong diagonal values indicate correct predictions.
-* Minimal off-diagonal values indicate low misclassification.
-
----
-
-## 🛠️ Technologies Used
-
-* Python
-* Pandas
-* NumPy
-* Scikit-Learn
-* Matplotlib
-* Seaborn
-* Jupyter Notebook
-
----
-
-## 🚀 Installation & Usage
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/MuhammadHassanminhas/scientific-abstract-classifier.git
-cd scientific-abstract-classifier
-```
-
-### Install Dependencies
-
-```bash
-pip install pandas scikit-learn matplotlib seaborn jupyter
-```
-
-### Launch Jupyter Notebook
-
-```bash
-jupyter notebook Task7_Text_Classifier.ipynb
-```
-
-### Run the Notebook
-
-Execute all cells to:
-
-1. Generate the dataset
-2. Preprocess text data
-3. Train the classifier
-4. Evaluate model performance
-5. Display visualizations
-
----
-
-## 📈 Future Improvements
-
-* Increase dataset size using real PubMed abstracts
-* Experiment with advanced NLP models
-
-  * Naive Bayes
-  * Support Vector Machines (SVM)
-  * Random Forest
-  * BERT / BioBERT
-* Add model deployment using Flask or Streamlit
-* Implement hyperparameter tuning
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-Feel free to fork the repository, create a feature branch, and submit a pull request.
-
----
 
 ## 📜 License
 
-This project is licensed under the MIT License.
-
----
-
-## 👨‍💻 Author
-
-**Ibtisam Imtiaz**
-
-GitHub: https://github.com/codeby-ibtisam
-
----
-
-⭐ If you found this project useful, consider giving it a star on GitHub!
+This project is open-source and available under the MIT License.
